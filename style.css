@@ -352,6 +352,20 @@ nav {
   text-decoration: underline;
 }
 
+/* Zone category headers */
+.zone-category-header {
+  grid-column: 1 / -1;
+  color: #fde047;
+  margin: 1rem 0 0.5rem 0;
+  padding-left: 0.5rem;
+  border-left: 3px solid #fde047;
+  text-align: left;
+  font-size: 1.1rem;
+}
+.zone-category-header:first-child {
+  margin-top: 0;
+}
+
 .refresh-btn, .voice-btn {
   background: #2563eb;
   color: white;
