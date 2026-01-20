@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SafeZones GNDU - Emergency Help</title>
+  <meta name="description" content="Emergency SOS and Safety Hub for GNDU Amritsar students and staff. Find safe zones, emergency contacts, and first aid information." />
+  <meta name="keywords" content="GNDU, Amritsar, Emergency, SOS, Safety, Guru Nanak Dev University" />
+  <title>SafeZones GNDU Amritsar - Emergency Help</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -13,7 +15,8 @@
   <div id="siren-flash-overlay" class="hidden"></div>
 
   <header>
-    <h1>🚨 SafeZones GNDU Emergency Hub</h1>
+    <h1>🚨 SafeZones GNDU Amritsar</h1>
+    <p style="margin: 0.2rem 0; font-size: 0.85rem; opacity: 0.9;">Guru Nanak Dev University • Campus Emergency Hub</p>
     <div id="status-indicator">Checking connection...</div>
   </header>
 
@@ -69,84 +72,132 @@
   </section>
 
   <section id="safezones" class="view">
-    <h2>Safe Zones Near GNDU 🧭</h2>
-    <p>Tap "Navigate" to open in Google Maps.</p>
+    <h2>Safe Zones - GNDU & Amritsar 🧭</h2>
+    <p>Campus locations & nearby emergency facilities. Tap "Navigate" for directions.</p>
     <div class="zones-grid" id="safezone-list"></div>
     <button id="refresh-safezones" class="refresh-btn">🔄 Refresh Zones</button>
   </section>
 
   <section id="firstaid" class="view">
-    <h2>Basic First Aid Guide ❤️</h2>
+    <h2>First Aid Guide ❤️</h2>
+    <p style="margin-bottom: 1rem; color: #93c5fd;">For serious injuries: GNDU Health Centre or call 108</p>
     <div class="first-aid-grid">
       <div class="aid-card">
         <h3>🔥 Burns</h3>
-        <p>Run under cool water for 10 minutes. Don’t apply butter or oil.</p>
+        <p>Cool water 10 mins. No butter/oil. Cover loosely. Visit Health Centre.</p>
       </div>
       <div class="aid-card">
         <h3>🩸 Bleeding</h3>
-        <p>Apply firm pressure with a clean cloth and keep the wound elevated.</p>
+        <p>Apply firm pressure with clean cloth. Keep elevated. Get medical help.</p>
       </div>
       <div class="aid-card">
         <h3>🦴 Fracture</h3>
-        <p>Immobilize the limb. Do not try to move it. Seek hospital help immediately.</p>
+        <p>Don't move the limb. Call 108 or go to Guru Nanak Dev Hospital (GT Road).</p>
       </div>
       <div class="aid-card">
         <h3>😮 Choking</h3>
-        <p>Perform 5 sharp back blows between the shoulder blades, then 5 abdominal thrusts.</p>
+        <p>5 back blows + 5 abdominal thrusts (Heimlich). Repeat until clear.</p>
       </div>
       <div class="aid-card">
-        <h3>😵 Fainting</h3>
-        <p>Lay the person flat on their back and elevate their legs slightly above heart level.</p>
+        <h3>😵 Heat Stroke</h3>
+        <p>Common in Amritsar summers. Move to shade, cool body, give water. Urgent care needed.</p>
       </div>
       <div class="aid-card">
-        <h3>⚡ Shock</h3>
-        <p>Keep the person warm and comfortable. Lay them down with feet elevated.</p>
+        <h3>⚡ Electric Shock</h3>
+        <p>Turn off power first. Don't touch victim if still connected. Call 108.</p>
+      </div>
+      <div class="aid-card">
+        <h3>🐕 Dog/Animal Bite</h3>
+        <p>Wash with soap 10 mins. Civil Hospital or Health Centre for anti-rabies vaccine.</p>
+      </div>
+      <div class="aid-card">
+        <h3>🤢 Food Poisoning</h3>
+        <p>ORS for hydration. No solid food. Health Centre if vomiting persists 24+ hrs.</p>
       </div>
     </div>
   </section>
 
   <section id="emergency" class="view">
     <h2>Emergency Numbers ☎️</h2>
+    
+    <h3 style="color: #fde047; margin-top: 1rem;">🏫 GNDU Campus</h3>
     <ul class="emergency-list">
-      <li><strong>Police:</strong> <a href="tel:100">100</a></li>
-      <li><strong>Ambulance:</strong> <a href="tel:108">108</a></li>
-      <li><strong>Fire:</strong> <a href="tel:101">101</a></li>
-      <li><strong>Women Helpline:</strong> <a href="tel:1091">1091</a></li>
+      <li><strong>Security Control Room:</strong> <a href="tel:+911832258802">+91 183 2258802</a></li>
+      <li><strong>Health Centre:</strong> <a href="tel:+911832258809">+91 183 2258809</a></li>
+      <li><strong>Main Gate Security:</strong> <a href="tel:+911832258800">+91 183 2258800</a></li>
+      <li><strong>Dean Students Welfare:</strong> <a href="tel:+911832258819">+91 183 2258819</a></li>
+      <li><strong>Women Cell:</strong> <a href="tel:+911832258835">+91 183 2258835</a></li>
+      <li><strong>Anti-Ragging Helpline:</strong> <a href="tel:18001805522">1800-180-5522</a></li>
+    </ul>
+    
+    <h3 style="color: #f87171; margin-top: 1.5rem;">🚨 Amritsar Emergency</h3>
+    <ul class="emergency-list">
+      <li><strong>Police:</strong> <a href="tel:100">100</a> • <strong>Ambulance:</strong> <a href="tel:108">108</a></li>
+      <li><strong>Fire:</strong> <a href="tel:101">101</a> • <strong>Women:</strong> <a href="tel:1091">1091</a></li>
       <li><strong>Child Helpline:</strong> <a href="tel:1098">1098</a></li>
-      <li><strong>GNDU Security:</strong> <a href="tel:+911832258802">+91 183 2258802</a></li>
+      <li><strong>Chheharta PS:</strong> <a href="tel:+911832262100">+91 183 2262100</a></li>
+      <li><strong>Civil Hospital:</strong> <a href="tel:+911832222102">+91 183 2222102</a></li>
+      <li><strong>Guru Nanak Dev Hospital:</strong> <a href="tel:+911832256401">+91 183 2256401</a></li>
       <li><strong>Disaster Management:</strong> <a href="tel:1070">1070</a></li>
-      <li><strong>Railway Helpline:</strong> <a href="tel:139">139</a></li>
     </ul>
   </section>
 
   <section id="disaster" class="view">
-    <h2>Disaster Safety Tips ⚡</h2>
+    <h2>Disaster Safety ⚡</h2>
+    <p style="margin-bottom: 1rem; color: #93c5fd;">Safety tips for GNDU campus & Amritsar region</p>
     <div class="disaster-box">
-      <h3>🏚️ Earthquake</h3>
-      <p>Drop, Cover, and Hold. Move away from windows and heavy objects.</p>
+      <h3>🏙️ Earthquake</h3>
+      <p>Drop, Cover, Hold. Campus assembly: Main Ground or Sports Complex open area.</p>
     </div>
     <div class="disaster-box">
       <h3>🔥 Fire</h3>
-      <p>Stay low to avoid smoke. Use stairs, not lifts. Call 101 immediately.</p>
+      <p>Stay low, use stairs. Call 101 + GNDU Security. Assembly: Library lawns, Main Ground.</p>
     </div>
     <div class="disaster-box">
-      <h3>🌊 Flood</h3>
-      <p>Move to higher ground. Avoid walking in moving water. Keep emergency kit ready.</p>
+      <h3>🌊 Flood/Waterlogging</h3>
+      <p>Monsoon waterlogging common. Avoid low areas. Stay in elevated buildings.</p>
     </div>
     <div class="disaster-box">
-      <h3>⚡ Electrical Shock</h3>
-      <p>Turn off power source before touching victim. Call emergency help.</p>
+      <h3>🌫️ Winter Fog</h3>
+      <p>Amritsar has dense fog Dec-Jan. Avoid night travel. Use fog lights, drive slow.</p>
+    </div>
+    <div class="disaster-box">
+      <h3>☀️ Heat Wave</h3>
+      <p>May-June extreme heat 45°C+. Stay hydrated, avoid 12-4 PM outdoors. ORS if needed.</p>
+    </div>
+    <div class="disaster-box">
+      <h3>💨 Dust Storm</h3>
+      <p>Pre-monsoon dust storms. Close windows, stay indoors. Protect eyes and breathing.</p>
     </div>
   </section>
 
   <section id="aiguide" class="view">
     <h2>🗣️ AI Safety Assistant</h2>
-    <p>In an emergency, click the button below to get instant, calm voice instructions.</p>
-    <button id="ai-guide-btn" class="voice-btn">Start AI Safety Guide</button>
+    <p>Get instant voice instructions for emergencies on GNDU campus.</p>
+    <button id="ai-guide-btn" class="voice-btn">🔊 Start Voice Guide</button>
+    
+    <div style="margin-top: 1.5rem; text-align: left; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px;">
+      <h3 style="color: #fde047; margin-top: 0;">📍 Quick Reference - GNDU</h3>
+      <ul style="line-height: 1.9; padding-left: 1.2rem;">
+        <li><strong>Health Centre:</strong> Near Admin Block (24/7)</li>
+        <li><strong>Main Gate Security:</strong> Gate 1, always staffed</li>
+        <li><strong>Women's Cell:</strong> Admin Block, 1st Floor</li>
+        <li><strong>Nearest Hospital:</strong> GND Hospital, GT Road (1.2 km)</li>
+        <li><strong>Nearest Police:</strong> Chheharta PS (1.5 km)</li>
+        <li><strong>Emergency Assembly:</strong> Main Ground / Library Lawns</li>
+      </ul>
+    </div>
+    
+    <div style="margin-top: 1rem; background: rgba(220,38,38,0.15); padding: 1rem; border-radius: 12px; border: 1px solid rgba(220,38,38,0.3);">
+      <h3 style="color: #f87171; margin-top: 0;">☎️ Speed Dial</h3>
+      <p style="font-size: 1.1rem;"><a href="tel:+911832258802" style="color: #93c5fd;">GNDU Security: 183-2258802</a></p>
+      <p style="font-size: 1.1rem;"><a href="tel:108" style="color: #93c5fd;">Ambulance: 108</a> • <a href="tel:100" style="color: #93c5fd;">Police: 100</a></p>
+    </div>
   </section>
 
   <footer>
-    <p>🩺 SafeZones GNDU | Stay Calm • Stay Informed • Stay Safe</p>
+    <p>🩺 SafeZones GNDU Amritsar</p>
+    <p style="font-size: 0.8rem; opacity: 0.85; margin-top: 0.3rem;">Stay Calm • Stay Safe | ਸ਼ਾਂਤ ਰਹੋ • ਸੁਰੱਖਿਅਤ ਰਹੋ</p>
   </footer>
 
   <div id="sos-modal" class="modal hidden">
@@ -159,18 +210,22 @@
       </div>
 
       <div id="sos-actions" class="hidden">
-        <p>Read this to the operator:</p>
+        <p style="font-weight: 600;">Read this to the operator:</p>
         <div id="sos-location-display">
           <p>Location not found. Please describe your surroundings.</p>
         </div>
         <div class="sos-call-grid">
           <a href="tel:108" class="sos-call-btn ambulance">
-            <span class="emoji">⚕️</span>
-            CALL AMBULANCE (108)
+            <span class="emoji">🚑</span>
+            AMBULANCE (108)
           </a>
           <a href="tel:100" class="sos-call-btn police">
-            <span class="emoji">🚓</span>
-            CALL POLICE (100)
+            <span class="emoji">🚔</span>
+            POLICE (100)
+          </a>
+          <a href="tel:+911832258802" class="sos-call-btn" style="background: #16a34a;">
+            <span class="emoji">🛡️</span>
+            GNDU SECURITY
           </a>
         </div>
       </div>
