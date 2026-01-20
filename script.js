@@ -123,34 +123,64 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- Safe Zone Data ---
+  // --- Safe Zone Data (GNDU Amritsar Specific) ---
   const safeZones = [
-    { name: "Guru Nanak Dev Hospital", type: "Hospital", distance: "1.2 km" },
-    { name: "Fortis Escorts Hospital", type: "Multi-speciality Hospital", distance: "3.4 km" },
-    { name: "Amandeep Hospital", type: "Emergency Care", distance: "2.2 km" },
-    { name: "Police Station Civil Lines", type: "Police Help", distance: "1.9 km" },
-    { name: "GNDU Security Post", type: "Campus Security", distance: "Within GNDU" },
-    { name: "Amritsar Fire Station", type: "Fire Department", distance: "2.8 km" },
-    { name: "Golden Temple Area Shelter", type: "Public Safe Zone", distance: "4.0 km" }
+    // Hospitals
+    { name: "Guru Nanak Dev Hospital GT Road", type: "Govt Hospital", distance: "1.2 km", category: "hospital", icon: "🏥" },
+    { name: "Fortis Escorts Majitha Road", type: "Private Hospital", distance: "3.4 km", category: "hospital", icon: "🏥" },
+    { name: "Amandeep Hospital Model Town", type: "Multi-specialty", distance: "2.2 km", category: "hospital", icon: "🏥" },
+    { name: "Civil Hospital Amritsar", type: "Govt Hospital", distance: "3.8 km", category: "hospital", icon: "🏥" },
+    { name: "Sri Guru Ram Das Hospital", type: "Charitable Hospital", distance: "4.5 km", category: "hospital", icon: "🏥" },
+    
+    // Police & Emergency
+    { name: "Police Station Chheharta", type: "Nearest Police", distance: "1.5 km", category: "police", icon: "👮" },
+    { name: "Police Station Civil Lines", type: "Police Station", distance: "3.2 km", category: "police", icon: "👮" },
+    { name: "Fire Station Hall Gate", type: "Fire Department", distance: "4.0 km", category: "emergency", icon: "🚒" },
+    
+    // Public Safe Zones
+    { name: "Golden Temple Complex", type: "24/7 Security Zone", distance: "5.0 km", category: "public", icon: "🛕" },
+    { name: "Amritsar Railway Station", type: "Railway Police", distance: "4.2 km", category: "public", icon: "🚉" }
   ];
 
   function loadSafeZones() {
     safezoneList.innerHTML = "";
+    
+    const categories = {
+      hospital: { title: "🏥 Hospitals", zones: [] },
+      police: { title: "👮 Police Stations", zones: [] },
+      emergency: { title: "🚒 Emergency Services", zones: [] },
+      public: { title: "🏛️ Public Safe Zones", zones: [] }
+    };
+    
     safeZones.forEach(zone => {
-      const div = document.createElement("div");
-      div.classList.add("zone-card");
-      div.innerHTML = `
-        <h3>${zone.name}</h3>
-        <p><strong>Type:</strong> ${zone.type}</p>
-        <p><strong>Distance:</strong> ${zone.distance}</p>
-        <button class="navigate-btn">🧭 Navigate</button>
-      `;
-      div.querySelector(".navigate-btn").addEventListener("click", () => {
-        const query = encodeURIComponent(zone.name + " Amritsar");
-        // *** BUG FIX: Correct Google Maps URL ***
-        window.open(`https://www.google.com/maps/search/?api=1&query=${query}`);
-      });
-      safezoneList.appendChild(div);
+      if (categories[zone.category]) {
+        categories[zone.category].zones.push(zone);
+      }
+    });
+    
+    Object.keys(categories).forEach(cat => {
+      if (categories[cat].zones.length > 0) {
+        const header = document.createElement("h3");
+        header.className = "zone-category-header";
+        header.textContent = categories[cat].title;
+        safezoneList.appendChild(header);
+        
+        categories[cat].zones.forEach(zone => {
+          const div = document.createElement("div");
+          div.classList.add("zone-card");
+          div.innerHTML = `
+            <h3>${zone.icon || "📍"} ${zone.name}</h3>
+            <p><strong>Type:</strong> ${zone.type}</p>
+            <p><strong>Distance:</strong> ${zone.distance}</p>
+            <button class="navigate-btn">🧭 Navigate</button>
+          `;
+          div.querySelector(".navigate-btn").addEventListener("click", () => {
+            const query = encodeURIComponent(zone.name + " Amritsar Punjab");
+            window.open(`https://www.google.com/maps/search/?api=1&query=${query}`);
+          });
+          safezoneList.appendChild(div);
+        });
+      }
     });
   }
   loadSafeZones();
@@ -230,20 +260,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // --- AI Voice Guide (English) ---
+  // --- AI Voice Guide (GNDU Specific) ---
   function setVoiceParams(utterance) {
     utterance.lang = 'en-IN';
-    utterance.rate = 1.2;
-    utterance.pitch = 0.9;
+    utterance.rate = 1.1;
+    utterance.pitch = 0.95;
     utterance.volume = 1.0;
   }
 
   function speakAiGuide() {
     speechSynthesis.cancel();
     const part1 = new SpeechSynthesisUtterance(
-      "Stay calm and listen. If you are in immediate danger, move away. " +
-      "Call 100 for Police or 108 for Ambulance. " +
-      "I am now finding your nearest safe zone."
+      "Stay calm and listen carefully. If you are in immediate danger, move away from the threat now. " +
+      "If you are on G-N-D-U campus, head to the nearest security post or Health Centre. " +
+      "Call 100 for Police, 108 for Ambulance, or G-N-D-U Security at 183-225-8802. " +
+      "I am finding your location now."
     );
     setVoiceParams(part1);
 
@@ -251,16 +282,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            const nearestZone = safeZones[0].name;
             const part2 = new SpeechSynthesisUtterance(
-              "Location found. The primary registered safe zone is " + nearestZone + ". If safe, move there now."
+              "Location found. On G-N-D-U campus, go to the Health Centre near Administrative Block or Main Gate Security. " +
+              "If outside campus, the nearest hospital is Guru Nanak Dev Hospital on G-T Road, about 1.2 kilometers away. " +
+              "Stay on the line with emergency services and share your location."
             );
             setVoiceParams(part2);
             speechSynthesis.speak(part2);
           },
           (error) => {
             const part2 = new SpeechSynthesisUtterance(
-              "Could not get your location. Move to a known safe area, like a hospital or police station."
+              "Could not get your location. If on G-N-D-U campus, go to Main Gate Security or Health Centre. " +
+              "If outside, head to Guru Nanak Dev Hospital on G-T Road or Chheharta Police Station."
             );
             setVoiceParams(part2);
             speechSynthesis.speak(part2);
@@ -269,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       } else {
         const part2 = new SpeechSynthesisUtterance(
-          "Geolocation is not supported. Please move to a known safe area."
+          "Geolocation not available. Head to G-N-D-U Security or the nearest hospital."
         );
         setVoiceParams(part2);
         speechSynthesis.speak(part2);
